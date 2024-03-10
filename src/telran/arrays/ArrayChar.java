@@ -6,7 +6,10 @@ public class ArrayChar {
 	private char[] array;
 	
 	public ArrayChar(char[] array) {
-		this.array = array;
+		this.array = new char[array.length];
+		for(int i = 0; i < this.array.length; i++) {
+			this.array[i] = array[i];
+		}
 	}
 	
 	public int compareTo(ArrayChar another) {
@@ -45,7 +48,8 @@ public class ArrayChar {
 	public int count(char character) {
 		int countOfChar = 0;
 		for(int i = 0; i < this.array.length; i++) {
-			if (this.array[i] == character) countOfChar++;
+//			if (this.array[i] == character) countOfChar++;
+			if (Character.compare(this.array[i], character) == 0) countOfChar++;			
 		}
 		
 		return countOfChar;
@@ -67,6 +71,15 @@ public class ArrayChar {
 			Character.toLowerCase(this.array[index]) - Character.toLowerCase(another.array[index]);
 	}
 	
+	public int compareToIgnoreCase1(ArrayChar another) {
+		String str1 = new String(this.array);
+		char[] arr1 = another.array;
+		System.out.println(Arrays.toString(arr1));
+		System.out.println(str1);
+		
+		return  new String(this.array).compareToIgnoreCase(new String(another.array));
+	}
+	
 	public boolean contains(char character) {
 		int index = 0;
 		
@@ -75,6 +88,10 @@ public class ArrayChar {
 		}
 		
 		return index == array.length ? false : true;
+	}
+	
+	public boolean contains1(char character) {
+		return indexOf(character) >= 0;
 	}
 	
 	public boolean equals(ArrayChar another) {

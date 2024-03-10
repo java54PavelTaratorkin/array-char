@@ -99,7 +99,31 @@ class ArrayCharTest {
 		assertEquals(-1, new ArrayChar(new char[] {'a'})
 				.compareToIgnoreCase(new ArrayChar(new char[] {'a', 'A'})));		
 		assertEquals(3, arrayChar1.compareToIgnoreCase(arrayChar3));
-		assertEquals(5, arrayChar1.compareTo(arrayChar5));
+		assertEquals(5, arrayChar1.compareToIgnoreCase(arrayChar5));
+	}
+	
+	@Test
+	void compareToIgnoreCase1Test() {
+		char[] ar1 = {'H', 'e', 'l', 'L', 'o'};
+		char[] ar2 ={'h', 'E', 'l', 'L', 'o'};
+		char[] ar3 = {'h', 'e'};
+		char[] ar4 = {'H', 'W'};
+		char[] ar5 = {};
+		
+		ArrayChar arrayChar1 = new ArrayChar(ar1);
+		ArrayChar arrayChar2 = new ArrayChar(ar2);
+		ArrayChar arrayChar3 = new ArrayChar(ar3);
+		ArrayChar arrayChar4 = new ArrayChar(ar4);
+		ArrayChar arrayChar5 = new ArrayChar(ar5);
+		
+		assertEquals(0, arrayChar2.compareToIgnoreCase1(arrayChar1));
+		assertEquals(-18, arrayChar1.compareToIgnoreCase1(arrayChar4));
+		assertEquals(1, new ArrayChar(new char[] {'a', 'a'})
+				.compareToIgnoreCase1(new ArrayChar(new char[] {'A'})));
+		assertEquals(-1, new ArrayChar(new char[] {'a'})
+				.compareToIgnoreCase1(new ArrayChar(new char[] {'a', 'A'})));		
+		assertEquals(3, arrayChar1.compareToIgnoreCase1(arrayChar3));
+		assertEquals(5, arrayChar1.compareToIgnoreCase1(arrayChar5));
 	}
 	
 	@Test
@@ -113,6 +137,19 @@ class ArrayCharTest {
 		assertTrue(arrayChar1.contains('e'));
 		assertFalse(arrayChar1.contains('W'));
 		assertFalse(arrayChar2.contains('o'));
+	}
+	
+	@Test
+	void contains1Test() {
+		char[] ar1 = {'H', 'e', 'l', 'L', 'o'};
+		char[] ar2 = {};
+		
+		ArrayChar arrayChar1 = new ArrayChar(ar1);
+		ArrayChar arrayChar2 = new ArrayChar(ar2);
+		
+		assertTrue(arrayChar1.contains1('e'));
+		assertFalse(arrayChar1.contains1('W'));
+		assertFalse(arrayChar2.contains1('o'));
 	}
 	
 	@Test
