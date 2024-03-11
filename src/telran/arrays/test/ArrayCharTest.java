@@ -223,5 +223,17 @@ class ArrayCharTest {
 		assertFalse(arrayChar1.compareToIgnoreCase(arrayChar3) == 0);
 		assertTrue(arrayChar1.compareToIgnoreCase(arrayChar5) !=0);
 	}
+	
+	@Test
+	void upperTest() {
+		ArrayChar inst1 = new ArrayChar(new char[] {'a', 'B', '['});
+		ArrayChar inst2 = new ArrayChar(new char[] {'A', 'b', '['});		
+		
+		assertEquals(0, inst1.compareToIgnoreCase(inst2));
+		
+		ArrayChar inst3 = new ArrayChar(new char[] {'['});
+		
+		assertEquals(5, new String("[").compareToIgnoreCase(new String("A")));
+	}
 
 }

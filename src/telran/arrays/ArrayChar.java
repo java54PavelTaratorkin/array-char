@@ -72,10 +72,10 @@ public class ArrayChar {
 	}
 	
 	public int compareToIgnoreCase1(ArrayChar another) {
-		String str1 = new String(this.array);
-		char[] arr1 = another.array;
-		System.out.println(Arrays.toString(arr1));
-		System.out.println(str1);
+//		String str1 = new String(this.array);
+//		char[] arr1 = another.array;
+//		System.out.println(Arrays.toString(arr1));
+//		System.out.println(str1);
 		
 		return  new String(this.array).compareToIgnoreCase(new String(another.array));
 	}
@@ -95,12 +95,14 @@ public class ArrayChar {
 	}
 	
 	public boolean equals(ArrayChar another) {
-		int result = this.compareTo(another);
-		return result == 0 ? true : false;
+//		int result = this.compareTo(another);
+//		return result == 0 ? true : false;
+		return another != null && this.compareTo(another) == 0;
 	}
 	
 	public boolean equalsIgnoreCase(ArrayChar another) {
-		int result = this.compareToIgnoreCase(another);
-		return result == 0 ? true : false;
+//		int result = this.compareToIgnoreCase(another);
+//		return result == 0 ? true : false;
+		return another != null && this.compareToIgnoreCase(another) == 0;
 	}	
 }
